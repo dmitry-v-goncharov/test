@@ -13,6 +13,11 @@
 <div id="elFix"></div>
 
 <script>
+  function dateParser(str) {
+    const arr = str.split(/[- :]/);
+    return new Date(new Date(arr[0], arr[1]-1, arr[2], arr[3], arr[4], arr[5]));
+  }
+
   const elOld = document.querySelector('#elOld');
   const elNew = document.querySelector('#elNew');
   const elFix = document.querySelector('#elFix');
@@ -25,12 +30,12 @@
   const UTCStringFix = t.getUTCFullYear() + '-' + ((t.getUTCMonth() + 1) > 10 ? (t.getUTCMonth() + 1) : '0' + (t.getUTCMonth() + 1)) + '-' + t.getUTCDate() + ' ' +
     t.getUTCHours() + ':' + t.getUTCMinutes() + ':' + t.getUTCSeconds() + '.00000';
 
-  const ts = Date.parse(UTCString);
-  const tsf = Date.parse(UTCStringFix);
+  const ts = dateParser(UTCString);
+  const tsf = dateParser(UTCStringFix);
 
   const flag = '2021-07-21 12:00:07.524641';
 
-  elOld.innerHTML = 'server:' + Date.parse(flag);
+  elOld.innerHTML = 'server:' + dateParser(flag);
   elNew.innerHTML = 'ts: ' + ts + ' str: ' + UTCString;
   elFix.innerHTML = 'ts: ' + tsf + ' str: ' + UTCStringFix;
 
