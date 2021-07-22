@@ -11,13 +11,17 @@
 <div id="root"></div>
 
 <script>
-    const root = document.querySelector('#root');
-
     const t = new Date();
-    const nowUTCString = t.getUTCFullYear() + '-' + (t.getUTCMonth() + 1) + '-' + t.getUTCDate() + ' ' +
+    const UTCString = t.getUTCFullYear() + '-' + (t.getUTCMonth() + 1) + '-' + t.getUTCDate() + ' ' +
       t.getUTCHours() +':'+ t.getUTCMinutes() +':'+ t.getUTCSeconds() +'.00000';
 
-    root.innerHTML = nowUTCString;
+    const UTCStringFix = t.getUTCFullYear() + '-' + ((t.getUTCMonth() + 1) > 10 ? (t.getUTCMonth() + 1) : '0' + (t.getUTCMonth() + 1)) + '-' + t.getUTCDate() + ' ' +
+      t.getUTCHours() +':'+ t.getUTCMinutes() +':'+ t.getUTCSeconds() +'.00000';
+    
+    const str = `${UTCString} \n ${UTCStringFix}`
+    
+
+    root.innerHTML = str;
 
 </script>
 
