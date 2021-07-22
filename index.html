@@ -18,7 +18,7 @@
     const UTCStringFix = t.getUTCFullYear() + '-' + ((t.getUTCMonth() + 1) > 10 ? (t.getUTCMonth() + 1) : '0' + (t.getUTCMonth() + 1)) + '-' + t.getUTCDate() + ' ' +
       t.getUTCHours() +':'+ t.getUTCMinutes() +':'+ t.getUTCSeconds() +'.00000';
     
-    const str = `${UTCString} \n ${UTCStringFix}`
+    const str = UTCString + '\n' + UTCStringFix
     
 
     root.innerHTML = str;
